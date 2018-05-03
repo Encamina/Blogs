@@ -1,0 +1,11 @@
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\bin\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.deps.json
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\bin\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.runtimeconfig.json
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\bin\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.runtimeconfig.dev.json
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\bin\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.dll
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\obj\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.csprojAssemblyReference.cache
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\obj\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\obj\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.AssemblyInfoInputs.cache
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\obj\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.AssemblyInfo.cs
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\bin\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.pdb
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\obj\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.dll
+C:\Users\adiaz\Source\Repos\PiensaEnColores.IdentityServer\PiensaEnColores.WebAPI\obj\Debug\netcoreapp2.0\PiensaEnColores.WebAPI.pdb
