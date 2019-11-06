@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "1e62b1a1-b12f-47b2-b897-e9879ccc8a16",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AspNetCoreOData",
+			"item": [
+				{
+					"name": "Get  All People Named Helen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Person?$filter=FirstName eq 'Helen'",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Person"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "FirstName eq 'Helen'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  All People",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Person",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Person with ID equals 3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Person(3)",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Person(3)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  People Named Helen and returns Only FirstName and LastName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Person?$filter=FirstName eq 'Helen'&$select=FirstName,LastName",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Person"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "FirstName eq 'Helen'"
+								},
+								{
+									"key": "$select",
+									"value": "FirstName,LastName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  People Named Helen order by LastName descendente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Person?$filter=FirstName eq 'Helen'&$select=FirstName,LastName",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Person"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "FirstName eq 'Helen'"
+								},
+								{
+									"key": "$select",
+									"value": "FirstName,LastName"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
