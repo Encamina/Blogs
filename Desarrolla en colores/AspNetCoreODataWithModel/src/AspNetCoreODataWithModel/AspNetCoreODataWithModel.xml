@@ -1,0 +1,772 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AspNetCoreODataWithModel</name>
+    </assembly>
+    <members>
+        <member name="T:AspNetCoreODataWithModel.Controllers.TaskController">
+            <summary>
+            TaskController
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Controllers.TaskController.#ctor(AutoMapper.IMapper,AspNetCoreODataWithModel.Data.Repositories.ITaskRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="mapper"></param>
+            <param name="repository"></param>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Controllers.TaskController.Get(Microsoft.AspNet.OData.Query.ODataQueryOptions{AspNetCoreODataWithModel.Model.TaskModel})">
+            <summary>
+            Get all tasks using OData query
+            </summary>
+            <returns>tasks</returns>
+            <remarks>
+            This method uses OData 4.0 query to retrieve task history data. (http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html/)
+            
+            ### REMARKS ###
+            Fields and their type you can filter data are the following:
+            
+            - id:                 integer($int32) 
+            - name:               string 
+            - billable:           string 
+            - observations:       string
+            - date:               string ($date-time) 
+            </remarks>
+            <response code="200">Returns tasks</response>
+            <response code="400">Error getting tasks</response>
+            <response code="404">Object result not found</response>
+            <response code="500">Internal Server Error</response> 
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.ApplicationContext">
+            <summary>
+            ApplicationContext
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.ApplicationContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{AspNetCoreODataWithModel.Data.ApplicationContext})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Data.ApplicationContext.Tareas">
+            <summary>
+            Tareas
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.ApplicationContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            OnModelCreating
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.Entities.Tarea">
+            <summary>
+            Tarea
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Data.Entities.Tarea.Nombre">
+            <summary>
+            Nombre
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Data.Entities.Tarea.Observaciones">
+            <summary>
+            Observaciones
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Data.Entities.Tarea.Fecha">
+            <summary>
+            Fecha
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Data.Entities.Tarea.Facturable">
+            <summary>
+            Facturable
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.Mapper.MappingProfile">
+            <summary>
+            MappingProfile
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Mapper.MappingProfile.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.Repositories.IRepositoryBase`1">
+            <summary>
+            IRepositoryBase
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.IRepositoryBase`1.ListAll">
+            <summary>
+            ListAllAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.IRepositoryBase`1.ListAll(System.Func{System.Linq.IQueryable{`0},System.Linq.IQueryable{`0}})">
+            <summary>
+            ListAllAsync
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.Repositories.ITaskRepository">
+            <summary>
+            ITaskRepository
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.Repositories.RepositoryBase`1">
+            <summary>
+            RepositoryBase
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.RepositoryBase`1.#ctor(AspNetCoreODataWithModel.Data.ApplicationContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dataContext"></param>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.RepositoryBase`1.ListAll">
+            <summary>
+            ListAll
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.RepositoryBase`1.ListAll(System.Func{System.Linq.IQueryable{`0},System.Linq.IQueryable{`0}})">
+            <summary>
+            ListAll
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.RepositoryBase`1.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.RepositoryBase`1.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Data.Repositories.TaskRepository">
+            <summary>
+            TaskRepository
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Data.Repositories.TaskRepository.#ctor(AspNetCoreODataWithModel.Data.ApplicationContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dataContext"></param>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Shared.Models.Database.BaseEntity">
+            <summary>
+            BaseEntity
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Shared.Models.Database.BaseEntity.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants">
+            <summary>
+            ApiConstants
+            </summary>
+            <summary>
+            ApiConstants
+            </summary>
+            <summary>
+            ApiConstants
+            </summary>
+            <summary>
+            ApiConstants
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes">
+            <summary>
+            Content types constants
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelStateValidation">
+            <summary>Model state validation message.</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXJavascript">
+            <summary>Used to denote the encoding necessary for files containing JavaScript source code. The alternative MIME type for this file type is text/javascript.</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioL24">
+            <summary>24bit Linear PCM audio at 8-48kHz, 1-N channels; Defined in RFC 3190</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXShockwaveFlash">
+            <summary>Adobe Flash files for example with the extension .swf</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationOctetStream">
+            <summary>Arbitrary binary data.[5] Generally speaking this type identifies files that are not associated with a specific application. Contrary to past assumptions by software packages such as Apache this is not a type that should be applied to unknown files. In such a case, a server or application should not indicate a content type, as it may be incorrect, but rather, should omit the type in order to allow the recipient to guess the type.[6]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationAtomXml">
+            <summary>Atom feeds</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextCss">
+            <summary>Cascading Style Sheets; Defined in RFC 2318</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextCmd">
+            <summary>commands; subtype resident in Gecko browsers like Firefox 3.5</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextCsv">
+            <summary>Comma-separated values; Defined in RFC 4180</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXDeb">
+            <summary>deb (file format), a software package format used by the Debian project</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MultipartEncrypted">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MultipartSigned">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MessageHttp">
+            <summary>Defined in RFC 2616</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelExample">
+            <summary>Defined in RFC 4735</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXDvi">
+            <summary>device-independent document in DVI format</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXmlDtd">
+            <summary>DTD files; Defined by RFC 3023</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationJavascript">
+             <summary>
+             ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/ecmascript but with looser processing rules) It is not accepted in IE 8 or earlier - text/javascript is accepted but it is defined as obsolete in RFC 4329. 
+            The "type" attribute of the script tag in HTML5 is optional and in practice omitting the media type of JavaScript programs is the most interoperable solution since all browsers have always assumed the correct default even before HTML5.
+             </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationEcmascript">
+            <summary>ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/javascript but with stricter processing rules)</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationEdifact">
+            <summary>EDI EDIFACT data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationEdiX12">
+            <summary>EDI X12 data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MessagePartial">
+            <summary>Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MessageRfc822">
+            <summary>Email; EML files, MIME files, MHT files, MHTML files; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextXml">
+            <summary>Extensible Markup Language; Defined in RFC 3023</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXml">
+            <summary>Extensible Markup Language; Defined in RFC 3023</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoXFlv">
+            <summary>Flash video (FLV files)</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImageGif">
+            <summary>GIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextXGwtRpc">
+            <summary>GoogleWebToolkit data</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXGzip">
+            <summary>Gzip</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextHtml">
+            <summary>HTML; Defined in RFC 2854</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImageVndMicrosoftIcon">
+            <summary>ICO image; Registered[9]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelIges">
+            <summary>IGS files, IGES files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MessageImdnXml">
+            <summary>IMDN Instant Message Disposition Notification; Defined in RFC 5438</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationJson">
+            <summary>JavaScript Object Notation JSON; Defined in RFC 4627</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationJsonPatch">
+            <summary>JavaScript Object Notation (JSON) Patch; Defined in RFC 6902</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextJavascript">
+            <summary>JavaScript - Defined in and obsoleted by RFC 4329 in order to discourage its usage in favor of application/javascript. However,text/javascript is allowed in HTML 4 and 5 and, unlike application/javascript, has cross-browser support. 
+            The "type" attribute of the script tag in HTML5 is optional and there is no need to use it at all since all browsers have always assumed the correct default (even in HTML 4 where it was required by the specification).
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImagePjpeg">
+            <summary>JPEG JFIF image; Associated with Internet Explorer; Listed in ms775147(v=vs.85) - Progressive JPEG, initiated before global browser support for progressive JPEGs (Microsoft and Firefox).</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImageJpeg">
+            <summary>JPEG JFIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextXJqueryTmpl">
+            <summary>jQuery template data</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndGoogleEarthKmlXml">
+            <summary>KML files (e.g. for Google Earth)</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXLatex">
+            <summary>LaTeX files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoXMatroska">
+            <summary>Matroska open media format</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet">
+            <summary>Microsoft Excel 2007 files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndMsExcel">
+            <summary>Microsoft Excel files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation">
+            <summary>Microsoft Powerpoint 2007 files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndMsPowerpoint">
+            <summary>Microsoft Powerpoint files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument">
+            <summary>Microsoft Word 2007 files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationMsword">
+            <summary>Microsoft Word files[15]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MultipartAlternative">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MultipartMixed">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MultipartRelated">
+            <summary>MIME Email; Defined in RFC 2387 and used by MHTML (HTML mail)</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.MultipartFormData">
+            <summary>MIME Webform; Defined in RFC 2388</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationWwwFormUrlEncoded">
+            <summary>Body contains a URL-encoded query string as per RFC 1867</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndMozillaXulXml">
+            <summary>Mozilla XUL files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioMpeg">
+            <summary>MP3 or other MPEG audio; Defined in RFC 3003</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioMp4">
+            <summary>MP4 audio</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoMp4">
+            <summary>MP4 video; Defined in RFC 4337</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoMpeg">
+            <summary>MPEG-1 video with multiplexed audio; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelMesh">
+            <summary>MSH files, MESH files; Defined in RFC 2077, SILO files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioBasic">
+            <summary>mulaw audio at 8 kHz, 1 channel; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoOgg">
+            <summary>Ogg Theora or other video (with audio); Defined in RFC 5334</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioOgg">
+            <summary>Ogg Vorbis, Speex, Flac and other audio; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationOgg">
+            <summary>Ogg, a multimedia bitstream container format; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXopXml">
+            <summary>OP</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOasisOpendocumentGraphics">
+            <summary>OpenDocument Graphics; Registered[14]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOasisOpendocumentPresentation">
+            <summary>OpenDocument Presentation; Registered[13]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOasisOpendocumentSpreadsheet">
+            <summary>OpenDocument Spreadsheet; Registered[12]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationVndOasisOpendocumentText">
+            <summary>OpenDocument Text; Registered[11]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXPkcs12">
+            <summary>p12 files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXPkcs7Certificates">
+            <summary>p7b and spc files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXPkcs7Mime">
+            <summary>p7c files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXPkcs7Certreqresp">
+            <summary>p7r files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXPkcs7Signature">
+            <summary>p7s files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationPdf">
+            <summary>Portable Document Format, PDF has been in use for document exchange on the Internet since 1993; Defined in RFC 3778</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImagePng">
+            <summary>Portable Network Graphics; Registered,[8] Defined in RFC 2083</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationPostscript">
+            <summary>PostScript; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoQuicktime">
+            <summary>QuickTime video; Registered[10]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXRarCompressed">
+            <summary>RAR archive files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioVndRnRealaudio">
+            <summary>RealAudio; Documented in RealPlayer Customer Support Answer 2559</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationRdfXml">
+            <summary>Resource Description Framework; Defined by RFC 3870</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationRssXml">
+            <summary>RSS feeds</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationSoapXml">
+            <summary>SOAP; Defined by RFC 3902</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXStuffit">
+            <summary>StuffIt archive files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImageSvgXml">
+            <summary>SVG vector image; Defined in SVG Tiny 1.2 Specification Appendix M</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ImageTiff">
+            <summary>Tag Image File Format (only for Baseline TIFF); Defined in RFC 3302</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXTar">
+            <summary>Tarball files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextPlain">
+            <summary>Textual data; Defined in RFC 2046 and RFC 3676</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXFontTtf">
+            <summary>TrueType Font No registered MIME type, but this is the most commonly used</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.TextVcard">
+            <summary>vCard (contact information); Defined in RFC 6350</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioVorbis">
+            <summary>Vorbis encoded audio; Defined in RFC 5215</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioVndWave">
+            <summary>WAV audio; Defined in RFC 2361</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationFontWoff">
+            <summary>Web Open Font Format; (candidate recommendation; use application/x-font-woff until standard is official)</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoWebm">
+            <summary>WebM Matroska-based open media format</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioWebm">
+            <summary>WebM open media format</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioXMsWax">
+            <summary>Windows Media Audio Redirector; Documented in Microsoft help page</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.AudioXMsWma">
+            <summary>Windows Media Audio; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.VideoXMsWmv">
+            <summary>Windows Media Video; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelVrml">
+            <summary>WRL files, VRML files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelX3DXml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3D XML files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelX3DBinary">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DB binary files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ModelX3DVrml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DV VRML files</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationXhtmlXml">
+            <summary>XHTML; Defined by RFC 3236</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationZip">
+            <summary>ZIP archive files; Registered[7]</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ProblemJson">
+            <summary>Problem detail json</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ProblemXml">
+            <summary>Problem detail xml</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ContentTypes.ApplicationOData">
+            <summary>ApplicationOData</summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ApiVersionHeader">
+            <summary>
+            Api version header
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Messages">
+            <summary>
+            Message constants
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Messages.ModelStateValidation">
+            <summary>
+            Model state
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Messages.NotFoundInDatabase">
+            <summary>
+            Not ofund in database
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ProblemDetailsTypes">
+            <summary>
+            ContentType constants
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ProblemDetailsTypes.Status400">
+            <summary>
+            Status400
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ProblemDetailsTypes.Status401">
+            <summary>
+            Status401
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ProblemDetailsTypes.Status403">
+            <summary>
+            Status403
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.ProblemDetailsTypes.Status500">
+            <summary>
+            Status500
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Swagger">
+            <summary>
+            ContentType constants
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Swagger.Endpoint">
+            <summary>
+            Swagger endpoint
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Swagger.ApiName">
+            <summary>
+            Swagger Api Name
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Swagger.ApiVersion">
+            <summary>
+            Swagger Api Version
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Swagger.RouteTemplate">
+            <summary>
+            Swagger route
+            </summary>
+        </member>
+        <member name="F:AspNetCoreODataWithModel.Infrastructure.Constants.ApiConstants.Swagger.RoutePrefix">
+            <summary>
+            Swagger route prefix
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Extensions.MvcBuilderExtensions">
+            <summary>
+            MvcBuilderExtensions
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.MvcBuilderExtensions.AddApiBehaviorOptions(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            AddApiBehaviorOptions
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.MvcBuilderExtensions.AddJsonSerializerSettings(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            AddJsonSerializerSettings
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions">
+            <summary>
+            ServiceCollectionExtensions
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions.AddCors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            AddCors
+            </summary>
+            <param name="services"></param>
+            <param name="policyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions.AddCustomDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddCustomDbContext
+            </summary>
+            <param name="services"></param> 
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions.AddCustomOData(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddCustomOData
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions.AddCustomApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddCustocmApiVersioning
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddSwagger
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Extensions.ServiceCollectionExtensions.AddDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddDependencyInjection
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Helper.EdmModelHelper">
+            <summary>
+            EdmModel
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Helper.EdmModelHelper.GetEdmModel(System.IServiceProvider)">
+            <summary>
+            GetEdmModel
+            </summary>
+            <param name="serviceProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Helper.EdmModelHelper.GetEdmModel">
+            <summary>
+            GetEdmModel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Infrastructure.Swagger.ODataQueryOptionsFilter">
+            <summary>
+            ODataQueryOptionsFilter
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Infrastructure.Swagger.ODataQueryOptionsFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Apply
+            </summary>
+            <param name="operation"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Model.TaskModel">
+            <summary>
+            TaskModel
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Model.TaskModel.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Model.TaskModel.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Model.TaskModel.Observations">
+            <summary>
+            Observations
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Model.TaskModel.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Model.TaskModel.Billable">
+            <summary>
+            Billable
+            </summary>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Program">
+            <summary>
+            Program 
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreODataWithModel.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+            <param name="environment"></param>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="P:AspNetCoreODataWithModel.Startup.Environment">
+            <summary>
+            Environment
+            </summary>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:AspNetCoreODataWithModel.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
