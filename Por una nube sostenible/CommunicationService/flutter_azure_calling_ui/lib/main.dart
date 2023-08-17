@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _getToken() async {
-    var response = await http.get(Uri.parse('{YOUR_AUTH_ENDPOINT}'));
+    var response = await http.get(Uri.parse('https://acs-authentication-service.azurewebsites.net/api/Function'));
     if (response.statusCode != 200) {
       return;
     }

@@ -1,8 +1,8 @@
 package com.example.flutter_azure_calling_ui
 
 import com.azure.android.communication.common.CommunicationTokenCredential
-import com.azure.android.communication.common.CommunicationTokenRefreshOptions
 import com.azure.android.communication.ui.calling.CallCompositeBuilder
+import com.azure.android.communication.ui.calling.models.CallCompositeErrorEvent
 import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator
 import com.azure.android.communication.ui.calling.models.CallCompositeJoinLocator
 import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions
@@ -10,10 +10,6 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import org.json.JSONObject
 import java.util.*
 
 
@@ -45,6 +41,12 @@ class MainActivity: FlutterActivity() {
         val remoteOptions =
             CallCompositeRemoteOptions(locator, communicationTokenCredential, displayName)
         val callComposite = CallCompositeBuilder().build()
+
+        callComposite.addOnErrorEventHandler { event: CallCompositeErrorEvent ->
+            // Process error event
+            println(event.cause)
+            println(event.errorCode)
+        }
         callComposite.launch(this, remoteOptions)
     }
 }

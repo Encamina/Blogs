@@ -1,0 +1,45 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98ccaa27ccd78322bc690b3e52ceb85406"
+    }
+  ],
+  "containerPath" : "/Users/jorgediegocrespo/Projects/FlutterTest/flutter_azure_calling_ui/ios/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "configurationName" : "Debug",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "ARCHS" : "x86_64",
+          "BUILD_ROOT" : "/Users/jorgediegocrespo/Library/Developer/Xcode/DerivedData/Runner-bmotjfvkhavhjfaxqcwizzqyfgpy/Build/Products",
+          "BUILT_PRODUCTS_DIR" : "/Users/jorgediegocrespo/Projects/FlutterTest/flutter_azure_calling_ui/build/ios/Debug-iphonesimulator/MicrosoftFluentUI",
+          "CONFIGURATION_BUILD_DIR" : "/Users/jorgediegocrespo/Projects/FlutterTest/flutter_azure_calling_ui/build/ios/Debug-iphonesimulator/MicrosoftFluentUI",
+          "DISABLE_MANUAL_TARGET_ORDER_BUILD_WARNING" : "1",
+          "SDKROOT" : "iphonesimulator16.4",
+          "TOOLCHAINS" : "com.apple.dt.toolchain.XcodeDefault"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      },
+      "toolchainOverride" : "com.apple.dt.toolchain.XcodeDefault"
+    }
+  },
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}
